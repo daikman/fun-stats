@@ -4,7 +4,7 @@ This package contains functions for calculating probability denisities, cumulati
 To use this package, you can use this script tag in an HTML page:
 
 ```
-<script src="https://unpkg.com/fun-stats@1.0.0/index.js"></script>
+<script src="https://unpkg.com/fun-stats@latest/index.js"></script>
 ```
 
 Or you can use npm.
