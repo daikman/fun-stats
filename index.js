@@ -161,6 +161,9 @@ function normCD(x, mu, sd) {
 }
 
 // UTITILTY DEFINITIONS
+const e = 2.718281828
+const pi = 3.14159265359
+
 function factorial(x) {
     if (x==0) return 1
     return x * factorial(x-1)
@@ -183,5 +186,10 @@ function combinations(n, r) {
     return prodRange(r+1, n)/prodRange(1,n-r);
 }
 
-const e = 2.718281828
-const pi = 3.14159265359
+module.exports = {
+    E, Var, stDev, poisson, poCD, 
+    poE, poVar, binomial, biCD, 
+    biE, biVar, geo, geoE, geoVar, 
+    geoCD, negBinomial, negBiE, 
+    negBiVar, norm, normCD
+}
