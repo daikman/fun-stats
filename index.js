@@ -128,6 +128,15 @@ function negBinomial(n, r, p) {
     return combinations(n - 1, r - 1)*Math.pow(p, r)*Math.pow(1 - p, n - r)
 }
 
+// calculate the probability that exactly r successes will result from less than or equal to n trials
+function negBiCD(n, r, p) {
+    let sum = 0
+    for (let i = 2; i < n + 1; i++) {
+        sum += negBinomial(i, r, p)
+    }
+    return sum
+}
+
 // calculate the expected value (mean) of a negative binomial distribution
 function negBiE(r, p) {
     return r/p
@@ -195,5 +204,5 @@ module.exports = {
     poE, poVar, binomial, biCD, 
     biE, biVar, geo, geoE, geoVar, 
     geoCD, negBinomial, negBiE, 
-    negBiVar, norm, normCD
+    negBiCD, negBiVar, norm, normCD
 }

@@ -98,8 +98,18 @@ const probability = negBinomial(20, 5, 1/6)
 ```
 
 ### Cumulative probability function
+`negBiCD(n, r, p)` finds the probability that you would see exactly `r` successes after `n` trials **or on any previous trial**, given `p`, the probability of a single success. 
 
-**NOT YET AVAILABLE**
+Example: calculate the probability that after 10 rolls or fewer of a dice that you will have observed exactly 2 sixes
+```
+// n = 10, 10 dice rolls
+// r = 2, 2 sixes
+// p = 1/6, chance of getting a 6 on any roll
+
+const probability = negBiCD(10, 2, 1/6)
+// 0.515, or ~52% chance of seeing exactly 2 sixes on any roll up to 10 rolls
+```
+
 
 ### Expected value and variance
 `negBiE(r, p)` finds the expected value of a negative binomial distribution. In other words, it finds the number of trials it will most likely take to observe `r` successes.
