@@ -15,8 +15,5 @@
     "mathematics"
   ],
   "author": "David Aikman",
-  "license": "ISC",
-  "dependencies": {
-    "fun-stats": "^1.0.1"
-  }
+  "license": "ISC"
 }
