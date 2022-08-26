@@ -4,7 +4,7 @@
   "description": "Fundamental statistics",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
     "mathematics"
   ],
   "author": "David Aikman",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "fun-stats": "^1.0.1"
+  }
 }

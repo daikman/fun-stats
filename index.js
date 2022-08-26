@@ -47,7 +47,11 @@ function stDev(X, P) {
 
 // calculate the probability of a single value on a Poisson distribution
 function poisson(x, L) {
-    return (Math.pow(e, -L)*Math.pow(L, x))/factorial(x)
+    const num = (Math.pow(e, -L)*Math.pow(L, x))
+    const dom = factorial(x)
+    if (num == Infinity & dom == Infinity) return 0
+    
+    return num/dom
 }
 
 // calculate the sum of the probability of all discrete values up to x on a Poisson distribution
@@ -119,19 +123,19 @@ function geoCD(x, p) {
 }
 
 // calculate the number of trials needed to get a fixed number of successes
-// x = number of trials, n = number of success, p = prob of one success
-function negBinomial(x, n, p) {
-    return combinations(x - 1, n - 1)*Math.pow(p, n)*Math.pow(1 - p, x - n)
+// n = number of trials, r = number of success, p = prob of one success
+function negBinomial(n, r, p) {
+    return combinations(n - 1, r - 1)*Math.pow(p, r)*Math.pow(1 - p, n - r)
 }
 
 // calculate the expected value (mean) of a negative binomial distribution
-function negBiE(n, p) {
-    return n/p
+function negBiE(r, p) {
+    return r/p
 }
 
 // calculate the variance of a negative binomial distribution
-function negBiVar(n, p) {
-    return (n*(1 - p))/(p*p)
+function negBiVar(r, p) {
+    return (r*(1 - p))/(p*p)
 }
 
 // probabilty density of a value on a normal distribution
