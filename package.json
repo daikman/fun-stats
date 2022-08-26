@@ -17,6 +17,6 @@
   "author": "David Aikman",
   "license": "ISC",
   "dependencies": {
-    "fun-stats": "^1.0.1"
+    "fun-stats": "^1.0.2"
   }
 }
