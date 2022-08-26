@@ -1,6 +1,6 @@
 {
   "name": "fun-stats",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Fundamental statistics",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,6 @@
   "author": "David Aikman",
   "license": "ISC",
   "dependencies": {
-    "fun-stats": "^1.0.2"
+    "fun-stats": "^1.0.1"
   }
 }
