@@ -199,10 +199,12 @@ function combinations(n, r) {
     return prodRange(r+1, n)/prodRange(1,n-r);
 }
 
-module.exports = {
-    E, Var, stDev, poisson, poCD, 
-    poE, poVar, binomial, biCD, 
-    biE, biVar, geo, geoE, geoVar, 
-    geoCD, negBinomial, negBiE, 
-    negBiCD, negBiVar, norm, normCD
+if ("module" in window) {
+    module.exports = {
+        E, Var, stDev, poisson, poCD, 
+        poE, poVar, binomial, biCD, 
+        biE, biVar, geo, geoE, geoVar, 
+        geoCD, negBinomial, negBiE, 
+        negBiCD, negBiVar, norm, normCD
+    }
 }
