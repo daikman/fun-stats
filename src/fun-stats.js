@@ -215,10 +215,12 @@ export function plot(f, data, domId) {
     // get data from function
     const parameters = Object.values(data)
     const labels = parameters[0]
+    const others = parameters.filter((d, i) => i != 0)
 
     let x = []
     for (let p of parameters[0]) {
-        x.push(f(p, parameters[1], parameters[2]))
+        const args = [p, ...others]
+        x.push(f(...args))
     }
 
     // draw chart
