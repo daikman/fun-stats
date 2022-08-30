@@ -1,10 +1,36 @@
 # Fundamental statistics
-This package contains functions for calculating probability denisities, cumulative densities, expected values and variances of a few fundamental distribution functions.
+This package contains functions for calculating probability denisities, cumulative densities, expected values and variances of a few fundamental distribution functions. It also has functions for plotting distributions.
 
+- [Installation](#installation)
+- [Binomial distribution](#binomial-distribution)
+  * [Probability mass function](#probability-mass-function)
+  * [Cumulative probability function](#cumulative-probability-function)
+  * [Expected value and variance](#expected-value-and-variance)
+- [Negative binomial distributions](#negative-binomial-distributions)
+  * [Probability mass function](#probability-mass-function-1)
+  * [Cumulative probability function](#cumulative-probability-function-1)
+  * [Expected value and variance](#expected-value-and-variance-1)
+- [Geometric distributions](#geometric-distributions)
+  * [Probability mass function](#probability-mass-function-2)
+  * [Cumulative probability function](#cumulative-probability-function-2)
+  * [Expected value and variance](#expected-value-and-variance-2)
+- [Normal distributions](#normal-distributions)
+  * [Probabilty mass function](#probabilty-mass-function)
+  * [Cumulative probabilty function](#cumulative-probabilty-function)
+  * [Expected value and variance](#expected-value-and-variance-3)
+- [Poisson distributions](#poisson-distributions)
+  * [Probability mass function](#probability-mass-function-3)
+  * [Cumulative probabitly function](#cumulative-probabitly-function)
+  * [Expected value and variance](#expected-value-and-variance-4)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
+## Installation
 To use this package, you can use this script tag in an HTML page:
 
 ```
-<script src="https://unpkg.com/fun-stats@latest/index.js"></script>
+<script src="https://unpkg.com/fun-stats@latest/dist/fun-stats.min.js"></script>
 ```
 
 Or you can use npm.
@@ -247,4 +273,109 @@ function poE(L) {
 function poVar(L) {
     return L
 }
+```
+
+## Plotting
+The function `plot(f, data, domId)` is currently quite limited, but here is how it works:
+
+- `f` is the function you want to plot (any of the distribution functions). It's output will be mapped to the y-axis of the chart.
+- `data` is an object defining the arguments to pass to function `f`. It's first property will be mapped to the x-axis of the chart.
+- `domId` is the id of the HTML element to which the plot should be appended.
+
+Details about `data`:
+The first property of the object can (and probably should) be an array (and will be mapped to the x-axis of the chart). The other properties of the object must be single values. **Importantly**, properties of `data` need to be in the order of the arguments of the function. For example, if you are plotting the function `binomial(x, n, p)` the object for data would need to look like this: 
+
+```
+{ 
+    x: [...], 
+    n: ..., 
+    p: ... 
+}
+```
+
+It's property names (keys) follow the order of the argument names in the function: `x`, `n`, then `p`.
+
+Example: plot a normal distribution with a mean of 60 and standard deviation of 10.
+```
+<div id="plot"></div>
+<script>    
+    // norm has arguments x, then mu, then sd
+    // so object keys should reflect this order
+    const data = {
+        x: [ ...Array(100).keys() ], // array of 0 to 99
+        mu: 60, // mean of 60
+        sd: 10
+    }
+
+    // create the plot
+    plot(norm, data, "plot")
+</script>
+```
+![](images/example_plot.png)
+
+`plot` uses [Chart.js](https://www.chartjs.org/) and it does not (currently) include options for customising plots. If you want more control over your plots, I would recommend using Chart.js directly, or another plotting library.
+
+Here is how to reproduce the example above using Chart.js instead of the `plot` function.
+`HTML`
+```
+<head>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+</head>
+<body>
+    <div id="chartjs"></div>
+    <script src="plot.js"></script>
+</body>
+```
+
+`plot.js`
+```
+// define parent element (plot goes inside it)
+const parent = document.getElementById("chartjs")
+
+// add canvas element for chart
+const cnv = document.createElement("canvas")
+parent.append(cnv)
+
+// define x-axis
+const X = [ ...Array(100).keys() ]
+        
+// define y-axis
+let Y = []
+for (let x of X) {
+    const prob = norm(x, 60, 10)
+    Y.push(prob)
+}
+
+// create the chart, given the canvas context and data
+const ctx = cnv.getContext('2d');
+const chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: X,
+        datasets: [{
+            label: 'Probability',
+            data: Y,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        plugins: {
+            legend: {
+               display: false
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+})
 ```
