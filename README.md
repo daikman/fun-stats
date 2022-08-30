@@ -103,7 +103,7 @@ const answer = biCD(x, n, p)
 
 Here is a chart showing the probabiltiy (y-axis) of observing a certain number of successes **or fewer** (x-axis) out of 50 trials, when the probability of one success is 0.5:
 
-![](/images/biCD_50_0.5.PNG)
+![](/images/biCD_50_0.5.png)
 
 We can be pretty much certain that we will observe 35 or fewer successes out of 50 trials. In other words, it would be extremely unlikely to have not obeserved *any* successes after 35 trials (imagine getting the same result on a coin flip 35 times in a row!). This can also be said for any value of `x` (x-axis) that has a probability (y-axis) of 1, or very close to 1. 
 
@@ -135,6 +135,10 @@ const probability = negBinomial(20, 5, 1/6)
 // 0.032, or 3.2% 
 ```
 
+Here is a chart showing the probability (y-axis) of observing exactly 5 successes after a certain number of trials (x-axis), with a probability of success of 1/6:
+
+![](/images/negBi_5_0.16.png)
+
 ### Cumulative probability function
 `negBiCD(n, r, p)` finds the probability that you would see exactly `r` successes after `n` trials **or on any previous trial**, given `p`, the probability of a single success. 
 
@@ -148,6 +152,9 @@ const probability = negBiCD(10, 2, 1/6)
 // 0.515, or ~52% chance of seeing exactly 2 sixes on any roll up to 10 rolls
 ```
 
+Here is a chart showing the probability (y-axis) of observing exactly 5 successes after a certain number of trials **or fewer** (x-axis), with a probability of success of 1/6:
+
+![](/images/negBiCD_5_0.16.png)
 
 ### Expected value and variance
 `negBiE(r, p)` finds the expected value of a negative binomial distribution. In other words, it finds the number of trials it will most likely take to observe `r` successes.
