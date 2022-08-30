@@ -2,7 +2,7 @@
   "name": "fun-stats",
   "version": "1.0.6",
   "description": "Fundamental statistics",
-  "main": "./src/fun-stats.js",
+  "main": "./npm/fun-stats.js",
   "scripts": {
     "build": "rollup -c"
   },

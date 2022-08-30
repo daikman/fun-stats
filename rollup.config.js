@@ -27,7 +27,7 @@ export default {
             },
             intro
         },
-        // minified file for distribution
+        // minified files for distribution
         {
             file: "dist/fun-stats.min.js",
             format: "iife",
@@ -35,6 +35,16 @@ export default {
             extend: true,
             globals: {
                 'chart.js': 'Chart'
+            },
+            intro,
+            plugins: [terser()]
+        },
+        {
+            file: "npm/fun-stats.js",
+            format: "cjs",
+            name: "fnst",
+            globals: {
+                'chart.js': 'Chart',
             },
             intro,
             plugins: [terser()]

@@ -19,7 +19,6 @@ Chart.register(
   Tooltip
 );
 
-
 // calculate the expected value of a discrete random variable
 export function E(X, P) {
     // check array
@@ -200,6 +199,10 @@ export function normCD(x, mu, sd) {
 // data: { a: [...], b: 1, c: 2 } 
 // auto-generate sliders for other args?
 export function plot(f, data, domId) {
+    if (typeof window === 'undefined') {
+        console.log("This function only works when in browser")
+        return
+    }
     const parent = document.getElementById(domId)
    
     // create or replace canvas element
@@ -282,14 +285,4 @@ function combinations(n, r) {
 
     r=(r < n-r) ? n-r : r;
     return prodRange(r+1, n)/prodRange(1,n-r);
-}
-
-if ("module" in window) {
-    module.exports = {
-        E, Var, stDev, poisson, poCD, 
-        poE, poVar, binomial, biCD, 
-        biE, biVar, geo, geoE, geoVar, 
-        geoCD, negBinomial, negBiE, 
-        negBiCD, negBiVar, norm, normCD
-    }
 }
