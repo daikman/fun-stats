@@ -316,7 +316,8 @@ Example: plot a normal distribution with a mean of 60 and standard deviation of 
 `plot` uses [Chart.js](https://www.chartjs.org/) and it does not (currently) include options for customising plots. If you want more control over your plots, I would recommend using Chart.js directly, or another plotting library.
 
 Here is how to reproduce the example above using Chart.js instead of the `plot` function.
-`HTML`
+
+`HTML`:
 ```
 <head>
     <!-- Chart.js CDN -->
@@ -328,7 +329,7 @@ Here is how to reproduce the example above using Chart.js instead of the `plot` 
 </body>
 ```
 
-`plot.js`
+`plot.js`:
 ```
 // define parent element (plot goes inside it)
 const parent = document.getElementById("chartjs")
