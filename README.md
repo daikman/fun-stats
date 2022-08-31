@@ -1,5 +1,5 @@
 # Fundamental statistics
-This package contains functions for calculating probability denisities, cumulative densities, expected values and variances of a few fundamental distribution functions. It also has functions for plotting distributions.
+This package contains functions for **calculating and plotting** probability denisities, cumulative densities, expected values and variances of a few fundamental distribution functions.
 
 - [Installation](#installation)
 - [Binomial distribution](#binomial-distribution)
@@ -45,9 +45,8 @@ Note that if you use npm, the function calls in the examples below might need to
 // using script tag
 binomial(3, 10, 0.5)
 
-// using npm
+// using npm/cjs
 const fnst = require("fun-stats")
-
 fnst.binomial(3, 10, 0.5)
 ```
 

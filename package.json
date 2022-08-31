@@ -1,6 +1,6 @@
 {
   "name": "fun-stats",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Fundamental statistics",
   "main": "./npm/fun-stats.js",
   "scripts": {
