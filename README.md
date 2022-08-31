@@ -188,6 +188,12 @@ const probability = geo(5, 0.048)
 // 0.039, 3.9%
 ```
 
+Here is a plot of the probability (y-axis) of observing a single success after a certain number of trials (y-axis), given a 10% probability of observing a success on a single trial:
+
+![](/images/geo_0.1.png)
+
+You can see that the probabiltiy of observing a single success starts at 0.1 and decreases as the number of trials increases. This is because it becomes more and more likely that you will observe *more than* a single success as the number of trials increases.
+
 ### Cumulative probability function
 `geoCD(x, p)` finds the probability of observing a single success after **`x` or fewer trials**.
 
@@ -199,6 +205,10 @@ Example: calculate the probability of being dealt a single hand of 21 in a game 
 const probability = geoCD(5, 0.048)
 // 0.22, or 22%
 ```
+
+Here is a chart showing the probability of observing exactly one success (y-axis) in a given number of trials **or fewer** (x-axis). There is a 0.1 probability of success on any given trial.
+
+![](/images/geoCD_0.1.png)
 
 ### Expected value and variance
 `geoE(p)` finds the expected value of a negative binomial distribution. In other words, it finds the number of trials it will most likely take to observe a single success.
@@ -235,6 +245,10 @@ const probability = norm(4, 3.5, 0.385)
 // 0.450, or 45% chance of observing a 4kg newborn
 ```
 
+Here is a chart showing the probability (y-axis) of a value (x-axis) being drawn from a normal distribution with a mean of 25 and a standard deviation of 8.
+
+![](/images/norm_25_8.png)
+
 ### Cumulative probabilty function
 `normCD(x, mu, sd)` finds the probabilty of observing any value between `mu` (the centre) and `x`. 
 
@@ -247,6 +261,10 @@ Example: calculate the probabilty of a full-term baby being born with a weight b
 const probability = normCD(4, 3.5, 0.385)
 // 0.90, or 90% chance of observing a 3.5-4kg newborn
 ```
+
+Here is a chart showing the probability (y-axis) of a value with an absolute difference from the mean (x-axis) on a normal distribution with a mean of 25 and standard deviation of 8.
+
+![](/images/normCD_25_8.png)
 
 ### Expected value and variance
 There are no functions in this package for calculating these values. The expected value is equivalent to `mu` in the functions above, and the variance of a normal distribution is equal to `sd` to the power of 2.
@@ -268,10 +286,14 @@ const probability = poisson(2, 1)
 // 0.18, or 18% chance of seeing 2 visitors in the next 5 minutes
 ```
 
+Here is a chart of the probabilty (y-axis) of observing a certain number of instances of an event (x-axis), given a poisson distribution with a λ of 5.
+
+![](/images/poisson_5.png)
+
 ### Cumulative probabitly function
 `poCD(x, L)` finds the probability of observing `x` **or fewer** instances of an event in a certain amount of time (or space), given the average rate of that event, `L` (or λ).
 
-Example: Calculate the probabilty that a museum will get 5 or fewer visitor in the next 5 minutes, given that it gets 3 visitor every 5 minutes on average.
+Example: Calculate the probabilty that a museum will get 5 or fewer visitors in the next 5 minutes, given that it gets 3 visitor every 5 minutes on average.
 ```
 // L = 3, avg visitors per 5 mins
 // x = 5, 2 visitors per 5 mins
@@ -280,6 +302,10 @@ const probability = poCD(3, 5)
 // 0.265, or ~27% chance of seeing 5 or fewer visitors 
 // in the next 5 minutes
 ```
+
+Here is a chart of the probabilty (y-axis) of observing a certain number of instances of an event **or fewer** (x-axis), given a poisson distribution with a λ of 5.
+
+![](/images/poCD_5.png)
 
 ### Expected value and variance
 `poE(L)` and `poVar(L)` return the expected value (mean) and variance of a Poisson distribution. The secret is, they both just return `L`. If you know that λ is equal to the mean and variance of a Poisson distribution, then you should never need to use these functions. Check out the source code:
