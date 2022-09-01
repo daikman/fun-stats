@@ -20,6 +20,7 @@
   "license": "MIT",
   "devDependencies": {
     "handlebars": "^4.7.7",
+    "minify": "^9.1.0",
     "rollup": "^2.78.1",
     "rollup-plugin-chartjs-globals": "^0.1.1",
     "rollup-plugin-license": "^2.8.1",

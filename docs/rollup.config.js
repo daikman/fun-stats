@@ -15,21 +15,6 @@ export default {
             globals: {
                 'handlebars': 'Handlebars'
             }
-        },
-        // minified file for distribution
-        {
-            file: "js/render.min.js",
-            format: "iife",
-            name: "window",
-            extend: true,
-            globals: {
-                'handlebars': 'Handlebars'
-            },
-            plugins: [
-                terser({
-                    arguments: true
-                })
-            ]
         }
     ]   
 }
