@@ -1,0 +1,71 @@
+body {
+    display: grid;
+    place-items: center;
+    font-family: sans-serif;
+}
+
+main {
+    max-width: 800px;
+    width: 100%;
+}
+
+main pre {
+    display: grid;
+    place-items: center;
+}
+
+img {
+    width: 100%
+}
+
+nav {
+    padding-top: 20px;
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+    border-bottom: 2px solid lightpink;
+    position: fixed;
+    top: 0;
+    background-color: white;
+}
+
+.navlink {
+    text-align: center;
+}
+
+.navlink:hover {
+    font-weight: bold;
+    cursor: pointer;
+    background-color: lightpink;
+}
+
+.navlink a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#content {
+    margin-top: 100px;
+}
+
+#intro {
+    display: grid;
+    place-items: center;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 2px solid lightpink;
+    background-color: white;
+    text-align: center;
+}
+
+footer p {
+    margin: 0px
+}
