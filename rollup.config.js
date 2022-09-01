@@ -1,6 +1,3 @@
-// terser for minification
-import { terser } from 'rollup-plugin-terser'
-
 // liscence and copyright info
 const intro = `
 /*!

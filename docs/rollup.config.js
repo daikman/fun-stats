@@ -1,6 +1,3 @@
-// terser for minification
-import { terser } from 'rollup-plugin-terser'
-
 // rollup configuration object
 export default {
     input: 'src/render.js',

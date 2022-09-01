@@ -14,6 +14,7 @@ export function demo() {
         .then(t => {
             const demoTemplate = Handlebars.compile(t, null)
             document.getElementById('content').innerHTML = demoTemplate()
+            renderPlot()
         })
 }
 
@@ -46,10 +47,19 @@ export function args(f) {
     return result;
 }
 
-export function renderPlot(f) {
-    console.log(f)
+export function renderPlot() {
+    const n = document.getElementById('n-slider').value
+    const p = document.getElementById('p-slider').value/100
+
+    plot(binomial, {x: [ ...Array(20).keys() ], n, p}, "plot")
+
+    // update slider text
+    document.getElementById('n-label').textContent = "n = " + n
+    document.getElementById('p-label').textContent = "p = " + p
+
 }
 
 // getDownloads()
 getVersion()
-demo()
+// demo()
+fullDocs()

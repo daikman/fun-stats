@@ -4498,6 +4498,7 @@
           .then(t => {
               const demoTemplate = inst.compile(t, null);
               document.getElementById('content').innerHTML = demoTemplate();
+              renderPlot();
           });
   }
 
@@ -4530,13 +4531,22 @@
       return result;
   }
 
-  function renderPlot(f) {
-      console.log(f);
+  function renderPlot() {
+      const n = document.getElementById('n-slider').value;
+      const p = document.getElementById('p-slider').value/100;
+
+      plot(binomial, {x: [ ...Array(20).keys() ], n, p}, "plot");
+
+      // update slider text
+      document.getElementById('n-label').textContent = "n = " + n;
+      document.getElementById('p-label').textContent = "p = " + p;
+
   }
 
   // getDownloads()
   getVersion();
-  demo();
+  // demo()
+  fullDocs();
 
   exports.args = args;
   exports.demo = demo;
