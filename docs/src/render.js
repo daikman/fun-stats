@@ -1,7 +1,7 @@
 import Handlebars from "../../node_modules/handlebars/lib/handlebars"
 
 export function fullDocs() {
-    fetch('../README.md')
+    fetch('./README.md')
         .then(response => response.text())
         .then(data => {
             document.getElementById('content').innerHTML = marked.parse(data)
