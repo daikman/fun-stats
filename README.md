@@ -77,7 +77,7 @@ const probability = binomial(x, n, p)
 
 Here is a chart showing the probabiltiy (y-axis) of observing a certain number of successes (x-axis) out of 50 trials, when the probability of one success is 0.5:
 
-![](/images/binomial_50_0.5.png)
+![](./images/binomial_50_0.5.png)
 
 You can see that the most probable outcome is observing 25/50 successes. This makes sense given that each trial has a 50% chance of succeeding, and 25/50 is equal to 50%.
 
