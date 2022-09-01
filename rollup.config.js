@@ -1,6 +1,3 @@
-// terser for minification
-import { terser } from 'rollup-plugin-terser'
-
 // liscence and copyright info
 const intro = `
 /*!
@@ -16,7 +13,6 @@ export default {
     input: 'src/fun-stats.js',
     external: ['chart.js'],
     output: [
-        // non-minified file for debugging etc.
         {
             file: "dist/fun-stats.js",
             format: "iife",
@@ -27,7 +23,6 @@ export default {
             },
             intro
         },
-        // minified files for distribution
         {
             file: "dist/fun-stats.min.js",
             format: "iife",
@@ -36,8 +31,7 @@ export default {
             globals: {
                 'chart.js': 'Chart'
             },
-            intro,
-            plugins: [terser()]
+            intro
         },
         {
             file: "npm/fun-stats.js",
@@ -46,8 +40,7 @@ export default {
             globals: {
                 'chart.js': 'Chart',
             },
-            intro,
-            plugins: [terser()]
+            intro
         }
     ]   
 }
