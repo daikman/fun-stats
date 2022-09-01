@@ -4,7 +4,8 @@
   "description": "Calculating and plotting fundamental statistics",
   "main": "./npm/fun-stats.js",
   "scripts": {
-    "build": "rollup -c"
+    "build-package": "rollup -c",
+    "build-homepage": "cd ./docs && rollup -c"
   },
   "repository": {
     "type": "git",
@@ -18,10 +19,8 @@
   "author": "David Aikman",
   "license": "MIT",
   "devDependencies": {
-    "rollup": "^2.78.1",
-    "rollup-plugin-chartjs-globals": "^0.1.1",
-    "rollup-plugin-license": "^2.8.1",
-    "rollup-plugin-terser": "^7.0.2"
+    "handlebars": "^4.7.7",
+    "rollup": "^2.78.1"
   },
   "dependencies": {
     "chart.js": "^3.9.1"

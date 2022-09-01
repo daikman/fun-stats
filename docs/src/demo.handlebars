@@ -1,0 +1,26 @@
+<h1>Binomial distribution with fun-stats</h1>
+<p>This package contains functions for calculating and plotting a few fundamental probability distributions. Below is a demo of how to work with the binomial distribution with fun-stats.</p>
+<div id="plot"></div>
+<div id="inputs" style="display: grid; place-items: center; grid-template-columns: repeat(2, 1fr)">
+    <div>
+        <label for="n"><code id="n-label">n</code></label>
+        <input type="range" name="n" id="n-slider" min = "20" max = "50" onchange="renderPlot()">   
+    </div>
+    <div>
+        <label for="p"><code id="p-label">p</code></label>
+        <input type="range" name="p" id="p-slider" min = "0" max = "100" onchange="renderPlot()">
+    </div>
+</div>
+<p>
+    The chart above shows the probability (y-axis) of observing a certain number of successes in <code>n</code> trials, 
+    given the probability of a single success (<code>p</code>). 
+</p>
+<p>
+    For example, if <code>p</code> = 0.5, and <code>n</code> = 20, 
+    then it could be showing the probability of observing <code>x</code> heads (x-axis) in 20 coin tosses. 
+    If you move the sliders to those positions, you'll see that the highest probability is when <code>x</code> is equal to 10. 
+    So you would expect, on average, to observe 10 heads in a series of 20 coin flips.
+</p>
+<p>
+    <code>n</code> and <code>p</code> can be adjusted with the sliders.
+</p>
