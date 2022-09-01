@@ -1,11 +1,11 @@
 {
   "name": "fun-stats",
-  "version": "1.0.10",
+  "version": "1.1.0",
   "description": "Calculating and plotting fundamental statistics",
   "main": "./npm/fun-stats.js",
   "scripts": {
     "build-package": "rollup -c",
-    "build-homepage": "copyfiles --flat README.md docs && cd ./docs && rollup -c"
+    "build-homepage": "copyfiles --flat README.md docs && copyfiles --flat images/*png docs/images && cd ./docs && rollup -c"
   },
   "repository": {
     "type": "git",
